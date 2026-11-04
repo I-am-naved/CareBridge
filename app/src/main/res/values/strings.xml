@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">CareBridge</string>
+    <string name="brand_tagline">Your care, connected.</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="login_subtitle">Log in to continue your healthcare journey.</string>
+    <string name="login_id_label">User ID or Email address</string>
+    <string name="login_id_hint">Enter your User ID or email</string>
+    <string name="password_label">Password</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login">Log in</string>
+    <string name="new_to_app">New to CareBridge? </string>
+    <string name="create_account">Create an account</string>
+    <string name="health_disclaimer">CareBridge helps you organize care information. It does not replace professional medical advice.</string>
+
+    <string name="create_account_title">Create Account</string>
+    <string name="create_account_subtitle">Follow the rules below to register your CareBridge account.</string>
+    <string name="full_name_label">Full name</string>
+    <string name="full_name_hint">Enter your full name</string>
+    <string name="user_id_label">User ID / Username</string>
+    <string name="user_id_hint">Choose a unique User ID (min 3 chars)</string>
+    <string name="email_label">Email address</string>
+    <string name="email_hint">you@example.com</string>
+    <string name="confirm_password_label">Confirm password</string>
+    <string name="confirm_password_hint">Re-enter your password</string>
+    <string name="create_my_account">Create My Account</string>
+    <string name="already_have_account">Already have an account? </string>
+    <string name="back_to_login">Log in</string>
+
+    <string name="rules_header">Account Rules:</string>
+    <string name="rule_1">• All fields are required</string>
+    <string name="rule_2">• User ID must be at least 3 characters</string>
+    <string name="rule_3">• Valid email address format required</string>
+    <string name="rule_4">• Password must be at least 8 characters long</string>
+    <string name="rule_5">• Passwords must match</string>
+
+    <string name="greeting_format">Welcome, %1$s!</string>
+    <string name="home_subtitle">Here is your healthcare overview.</string>
+    <string name="next_step_heading">YOUR NEXT STEP</string>
+    <string name="no_pending_tasks">No pending tasks.</string>
+    <string name="view_care_tasks">View care tasks</string>
+    <string name="upcoming_appointment_heading">UPCOMING APPOINTMENT</string>
+    <string name="no_upcoming_appointment">No upcoming appointments saved.</string>
+    <string name="appointment_format">%1$s • %2$s</string>
+    <string name="care_at_glance">YOUR CARE AT A GLANCE</string>
+    <string name="pending_tasks">Pending tasks</string>
+    <string name="view_progress">View progress</string>
+    <string name="open_journey">Open my healthcare journey</string>
+
+    <string name="journey_title">My Journey</string>
+    <string name="journey_subtitle">Keep track of visits, referrals, tests and follow-ups.</string>
+    <string name="add_activity">Add healthcare activity</string>
+    <string name="timeline_heading">YOUR TIMELINE</string>
+    <string name="journey_empty">No healthcare activities yet. Add an activity to get started.</string>
+
+    <string name="profile_title">Profile</string>
+    <string name="profile_subtitle">Manage your account and personal details.</string>
+    <string name="account_heading">ACCOUNT</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="account_settings">Account settings</string>
+    <string name="delete_account">Delete account</string>
+    <string name="logout">Log out</string>
+    <string name="profile_footer">CareBridge · Patient-controlled care planning</string>
+
+    <string name="home_nav">Home</string>
+    <string name="journey_nav">Journey</string>
+    <string name="profile_nav">Profile</string>
+
+    <string name="edit_profile_title">Edit profile</string>
+    <string name="add_activity_title">Add healthcare activity</string>
+    <string name="activity_title_hint">Activity title (required)</string>
+    <string name="activity_details_hint">Details (optional)</string>
+    <string name="activity_date_hint">Date (optional)</string>
+    <string name="activity_status_hint">Status</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+
+    <string name="delete_account_title">Delete your account?</string>
+    <string name="delete_account_message">This permanently removes your account and saved CareBridge records from this device. This action cannot be undone.</string>
+    <string name="account_deleted">Account deleted.</string>
+    <string name="profile_updated">Profile updated.</string>
+    <string name="settings_not_available">Additional settings will be added in a later phase.</string>
+    <string name="password_reset_not_available">Password reset is not available in this prototype.</string>
+
+    <string name="error_required_credentials">Enter your User ID or Email and password.</string>
+    <string name="error_login_failed">User ID/Email or password is incorrect.</string>
+    <string name="error_all_fields_required">Complete all fields.</string>
+    <string name="error_user_id_short">User ID must be at least 3 characters.</string>
+    <string name="error_invalid_email">Enter a valid email address.</string>
+    <string name="error_password_length">Password must be at least 8 characters.</string>
+    <string name="error_password_mismatch">Passwords do not match.</string>
+    <string name="error_user_id_exists">That User ID is already registered.</string>
+    <string name="error_email_exists">That email address is already registered.</string>
+    <string name="error_profile_invalid">Enter a name and valid email address.</string>
+    <string name="error_title_required">Enter an activity title.</string>
+    <string name="default_user_name">there</string>
+</resources>
