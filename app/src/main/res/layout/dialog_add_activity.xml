@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F8FA"
+    android:orientation="vertical">
+
+    <!-- Top Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/cancelButtonTop"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="#173B57"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="Add Healthcare Note"
+            android:textColor="#173B57"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Note Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note Title"
+                android:textColor="#173B57"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/titleInput"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_card"
+                android:backgroundTint="#FFFFFF"
+                android:hint="e.g., Doctor visit, Test result"
+                android:inputType="textCapSentences"
+                android:padding="12dp"
+                android:textColor="#173B57"
+                android:textSize="15sp" />
+
+            <!-- Note Description -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Note Description"
+                android:textColor="#173B57"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_card"
+                android:backgroundTint="#FFFFFF"
+                android:padding="12dp">
+
+                <EditText
+                    android:id="@+id/descInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="top|start"
+                    android:hint="Type or record your notes..."
+                    android:inputType="textMultiLine"
+                    android:text="I need to discuss my test results during my next appointment."
+                    android:textColor="#173B57"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btnMic"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/bg_icon_circle"
+                    android:backgroundTint="#1D4ED8"
+                    android:text="🎙"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <!-- Voice Recording Preview Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_card"
+                android:backgroundTint="#FFFFFF"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <!-- Waveform representation -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView android:layout_width="3dp" android:layout_height="14dp" android:layout_marginHorizontal="2dp" android:background="#1D4ED8"/>
+                    <TextView android:layout_width="3dp" android:layout_height="22dp" android:layout_marginHorizontal="2dp" android:background="#1D4ED8"/>
+                    <TextView android:layout_width="3dp" android:layout_height="30dp" android:layout_marginHorizontal="2dp" android:background="#1D4ED8"/>
+                    <TextView android:layout_width="3dp" android:layout_height="18dp" android:layout_marginHorizontal="2dp" android:background="#1D4ED8"/>
+                    <TextView android:layout_width="3dp" android:layout_height="26dp" android:layout_marginHorizontal="2dp" android:background="#1D4ED8"/>
+                    <TextView android:layout_width="3dp" android:layout_height="12dp" android:layout_marginHorizontal="2dp" android:background="#1D4ED8"/>
+                    <TextView android:layout_width="3dp" android:layout_height="20dp" android:layout_marginHorizontal="2dp" android:background="#1D4ED8"/>
+                    <TextView android:layout_width="3dp" android:layout_height="28dp" android:layout_marginHorizontal="2dp" android:background="#1D4ED8"/>
+                    <TextView android:layout_width="3dp" android:layout_height="16dp" android:layout_marginHorizontal="2dp" android:background="#1D4ED8"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="00:05"
+                    android:textColor="#173B57"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/bg_icon_circle"
+                    android:backgroundTint="#B42318" />
+            </LinearLayout>
+
+            <!-- Hidden category / date inputs for compatibility -->
+            <Spinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/dateInput"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Actions Footer -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card"
+            android:backgroundTint="#FFFFFF"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="#173B57"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#173B57"
+            android:text="Save Note"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+- `[ ]` Update color palette and theme resources in res/values/colors.xml and styles.xml
+- `[ ]` Update Login/Welcome screen (activity_main.xml & MainActivity.java)
+- `[ ]` Update Home screen (activity_home.xml & activity_home.java) with notification bell, Sarah greeting, Next Appointment banner, 6 quick actions, and bottom nav
+- `[ ]` Update Appointments screen (dialog_appointments.xml & AppointmentsDialog.java) with tabs, date badges, and add button
+- `[ ]` Update Appointment Details & Location screens (activity_appointment_location.xml & AppointmentLocationActivity.java) with instructions, Read Aloud, and map view
+- `[ ]` Update Voice Assistant screen (activity_voice_assistant.xml & VoiceAssistantActivity.java) with waveform rings and prompt chips
+- `[ ]` Update Add Healthcare Note screen (dialog_add_activity.xml & AddActivityDialog.java) with note inputs, voice recording preview, and save buttons
+- `[ ]` Update Care Tasks screen (dialog_tasks.xml & TasksDialog.java) with tabs and task rows
+- `[ ]` Update Nearby Services screen (activity_nearby_services.xml & NearbyServicesActivity.java) with filter chips
+- `[ ]` Update Profile screen (activity_profile.xml & activity_profile.java) with avatar, edit icon, and menu items
+- `[ ]` Run gradle build and verify successful compilation
