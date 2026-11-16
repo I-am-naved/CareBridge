@@ -96,7 +96,6 @@
                     android:gravity="top|start"
                     android:hint="Type or record your notes..."
                     android:inputType="textMultiLine"
-                    android:text="I need to discuss my test results during my next appointment."
                     android:textColor="#173B57"
                     android:textSize="15sp" />
 

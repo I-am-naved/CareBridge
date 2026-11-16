@@ -62,7 +62,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBHPjPZtXOu5OxCYJbkl8PiyeLhnBWApNY" />
+            android:value="AIzaSyCO6YABnlxW37LPycCvidaTwAjjNDRrs68" />
 
         <activity
             android:name=".AppointmentLocationActivity"

@@ -9,12 +9,19 @@ public class JourneyItem {
     private String description;
     private String date;
     private long timestamp;
+    private String assignedBy;
+    private String reason;
+    private String status;     // e.g. "PENDING", "AWAITING_REVIEW", "COMPLETED"
 
     public JourneyItem() {
         // Default constructor for Firebase
     }
 
     public JourneyItem(String id, String userId, String stepNumber, String category, String title, String description, String date, long timestamp) {
+        this(id, userId, stepNumber, category, title, description, date, timestamp, null, null, null);
+    }
+
+    public JourneyItem(String id, String userId, String stepNumber, String category, String title, String description, String date, long timestamp, String assignedBy, String reason, String status) {
         this.id = id;
         this.userId = userId;
         this.stepNumber = stepNumber;
@@ -23,6 +30,9 @@ public class JourneyItem {
         this.description = description;
         this.date = date;
         this.timestamp = timestamp;
+        this.assignedBy = assignedBy;
+        this.reason = reason;
+        this.status = status;
     }
 
     public String getId() { return id; }
@@ -48,4 +58,13 @@ public class JourneyItem {
 
     public long getTimestamp() { return timestamp; }
     public void setTimestamp(long timestamp) { this.timestamp = timestamp; }
+
+    public String getAssignedBy() { return assignedBy; }
+    public void setAssignedBy(String assignedBy) { this.assignedBy = assignedBy; }
+
+    public String getReason() { return reason; }
+    public void setReason(String reason) { this.reason = reason; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 }

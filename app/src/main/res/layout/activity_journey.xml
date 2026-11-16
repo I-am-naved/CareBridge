@@ -93,15 +93,33 @@
 
         </LinearLayout>
 
-        <!-- Timeline heading -->
-        <TextView
+        <!-- Timeline heading and sort controls -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Journey timeline"
-            android:textColor="#173B57"
-            android:textSize="21sp"
-            android:textStyle="bold" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Journey timeline"
+                android:textColor="#173B57"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/sortOrderSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:backgroundTint="#FFFFFF"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="6dp" />
+
+        </LinearLayout>
 
         <!-- Dynamic Timeline Container -->
         <LinearLayout

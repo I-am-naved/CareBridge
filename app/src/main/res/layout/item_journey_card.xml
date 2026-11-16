@@ -3,17 +3,39 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="14dp"
-    android:background="#FFFFFF"
+    android:background="@drawable/bg_card"
+    android:backgroundTint="#FFFFFF"
     android:orientation="vertical"
     android:padding="18dp">
 
-    <TextView
-        android:id="@+id/itemCategory"
+    <!-- Header Row: Category & Status Badge -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#2D8C88"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/itemCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#2D8C88"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/itemStatusBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textColor="#173B57"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/itemTitle"
@@ -23,6 +45,25 @@
         android:textColor="#173B57"
         android:textSize="17sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/itemAssignedBy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#475467"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/itemReason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#854D0E"
+        android:textSize="13sp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/itemDescription"
@@ -36,10 +77,9 @@
         android:id="@+id/itemDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:textColor="#475467"
         android:textSize="13sp"
-        android:textStyle="italic"
         android:visibility="gone" />
 
 </LinearLayout>

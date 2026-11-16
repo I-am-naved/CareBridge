@@ -175,6 +175,7 @@ public class TasksDialog extends Dialog {
                 TextView description = row.findViewById(R.id.taskDescription);
                 TextView due = row.findViewById(R.id.taskDueDate);
                 TextView statusBadge = row.findViewById(R.id.taskStatusBadge);
+                Button btnFindNearby = row.findViewById(R.id.btnFindNearbyFacility);
 
                 if (title != null) {
                     title.setText(task.getTitle() == null ? "Care task" : task.getTitle());
@@ -210,11 +211,11 @@ public class TasksDialog extends Dialog {
                     String currentStatus = task.getStatus() == null ? "PENDING" : task.getStatus().toUpperCase();
                     
                     if ("COMPLETED".equals(currentStatus)) {
-                        statusBadge.setText("Completed");
+                        statusBadge.setText("Provider-Verified");
                         statusBadge.setTextColor(android.graphics.Color.parseColor("#065F46")); // Dark green
                         statusBadge.setBackgroundTintList(android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#D1FAE5"))); // Light green
                     } else if ("AWAITING_REVIEW".equals(currentStatus)) {
-                        statusBadge.setText("Awaiting Review");
+                        statusBadge.setText("Patient-Reported (Awaiting Review)");
                         statusBadge.setTextColor(android.graphics.Color.parseColor("#1E40AF")); // Dark blue
                         statusBadge.setBackgroundTintList(android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#DBEAFE"))); // Light blue
                     } else {
@@ -222,6 +223,38 @@ public class TasksDialog extends Dialog {
                         statusBadge.setTextColor(android.graphics.Color.parseColor("#9A3412")); // Dark orange
                         statusBadge.setBackgroundTintList(android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#FFEDD5"))); // Light orange
                     }
+                }
+
+                // Phase 5: Healthcare Map Integration button on Task card
+                if (btnFindNearby != null) {
+                    String comboText = (task.getTitle() + " " + (task.getReason() != null ? task.getReason() : "") + " " + (task.getDescription() != null ? task.getDescription() : "")).toLowerCase(Locale.US);
+                    String buttonLabel;
+                    String targetCategory;
+
+                    if (comboText.contains("lab") || comboText.contains("blood") || comboText.contains("test") || comboText.contains("pathology") || comboText.contains("specimen")) {
+                        buttonLabel = "🔬 Find Nearby Laboratory";
+                        targetCategory = "laboratory";
+                    } else if (comboText.contains("pharmacy") || comboText.contains("medicine") || comboText.contains("prescription") || comboText.contains("meds")) {
+                        buttonLabel = "💊 Find Nearby Pharmacy";
+                        targetCategory = "pharmacy";
+                    } else if (comboText.contains("doctor") || comboText.contains("clinic") || comboText.contains("consult")) {
+                        buttonLabel = "🏥 Find Nearby Clinic";
+                        targetCategory = "clinic";
+                    } else {
+                        buttonLabel = "🗺 Find Nearby Healthcare";
+                        targetCategory = "all";
+                    }
+
+                    btnFindNearby.setText(buttonLabel);
+                    btnFindNearby.setVisibility(View.VISIBLE);
+                    btnFindNearby.setOnClickListener(v -> {
+                        dismiss();
+                        android.content.Intent mapIntent = new android.content.Intent(getContext(), NearbyServicesActivity.class);
+                        mapIntent.putExtra("taskId", task.getId());
+                        mapIntent.putExtra("taskTitle", task.getTitle());
+                        mapIntent.putExtra("targetCategory", targetCategory);
+                        getContext().startActivity(mapIntent);
+                    });
                 }
                 
                 row.setOnClickListener(v -> {
@@ -259,6 +292,17 @@ public class TasksDialog extends Dialog {
                         if (isAdmin) {
                             builder.setPositiveButton("Verify & Complete", (d, w) -> {
                                 tasksRef.child(task.getId()).child("status").setValue("COMPLETED");
+
+                                // Log event in My Healthcare Journey (Phase 6)
+                                long now = System.currentTimeMillis();
+                                DatabaseReference jRef = FirebaseHelper.getJourneyRef(userId).push();
+                                JourneyItem ji = new JourneyItem(
+                                        jRef.getKey(), userId, "", "Care Task",
+                                        "Task Verified: " + task.getTitle(),
+                                        "Provider verified task completion: " + task.getTitle(),
+                                        "", now, task.getAssignedBy() != null ? task.getAssignedBy() : "Provider", task.getReason(), "COMPLETED"
+                                );
+                                jRef.setValue(ji);
                             });
                         }
                         builder.setNeutralButton("Mark Pending", (d, w) -> {
@@ -271,6 +315,17 @@ public class TasksDialog extends Dialog {
                             updates.put("status", "AWAITING_REVIEW");
                             updates.put("completionNotes", noteInput.getText().toString().trim());
                             tasksRef.child(task.getId()).updateChildren(updates);
+
+                            // Log event in My Healthcare Journey (Phase 6)
+                            long now = System.currentTimeMillis();
+                            DatabaseReference jRef = FirebaseHelper.getJourneyRef(userId).push();
+                            JourneyItem ji = new JourneyItem(
+                                    jRef.getKey(), userId, "", "Care Task",
+                                    "Task Completed: " + task.getTitle(),
+                                    "Patient reported task completion: " + task.getTitle() + "\nNote: " + noteInput.getText().toString().trim(),
+                                    "", now, "Patient", task.getReason(), "AWAITING_REVIEW"
+                            );
+                            jRef.setValue(ji);
                             
                             // Send notification to admin/provider
                             String notificationId = FirebaseHelper.getRootRef().child("notifications").push().getKey();
