@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F8FA"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
     <!-- Top Header -->
     <LinearLayout
@@ -53,9 +54,21 @@
 
             <!-- Profile Avatar with Edit Badge -->
             <FrameLayout
+                android:id="@+id/avatarContainer"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/bg_icon_circle"
+                    android:scaleType="centerCrop"
+                    android:clipToOutline="true"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/profileAvatar"
@@ -63,7 +76,7 @@
                     android:layout_height="100dp"
                     android:background="@drawable/bg_icon_circle"
                     android:gravity="center"
-                    android:text="👩"
+                    android:text="ME"
                     android:textSize="40sp" />
 
                 <TextView
