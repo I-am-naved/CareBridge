@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    <!-- Heart outline with cross in middle -->
+  <path
+      android:pathData="M60,100 C60,100 20,70 20,40 C20,25 35,10 50,10 C57,10 60,15 60,15 C60,15 63,10 70,10 C85,10 100,25 100,40 C100,70 60,100 60,100 Z"
+      android:strokeColor="#173B57"
+      android:strokeWidth="10"
+      android:fillColor="#00000000"/>
+  <path
+      android:pathData="M50,45 L70,45 M60,35 L60,55"
+      android:strokeColor="#2D8C88"
+      android:strokeWidth="10"/>
+</vector>

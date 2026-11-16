@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="navy">#173B57</color>
+    <color name="teal">#2D8C88</color>
+    <color name="mint">#E8F5F2</color>
+    <color name="background">#F6F8FA</color>
+    <color name="text_primary">#1F2937</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="white">#FFFFFF</color>
+    <color name="border">#DCE5EA</color>
+    <color name="danger">#B42318</color>
+</resources>
